@@ -32,12 +32,12 @@
         "options": ["2012", "2013", "2014", "2015", "2016", "2017", "2018"],
         "name": "Select Year: "
       },
-      "value": "2018"  // default to 2018
+      "value": "2018"
     }
   ],
   "transform": [
     {
-      "lookup": "properties.ISO_A3",  // Use ISO3 code in the TopoJSON
+      "lookup": "properties.ISO_A3", 
       "from": {
         "data": {
           "url": "https://raw.githubusercontent.com/Nafiz71/FIT3179/main/filtered_top_10_countries_billion.csv",
@@ -45,7 +45,7 @@
             "type": "csv"
           }
         },
-        "key": "Code",  // Use ISO3 code from your CSV
+        "key": "Code",
         "fields": ["2012", "2013", "2014", "2015", "2016", "2017", "2018"]
       }
     },
@@ -72,7 +72,7 @@
   "encoding": {
     "color": {
       "condition": {
-        "test": "datum.Expenditure != null",  // Countries with data will use the color scale
+        "test": "datum.Expenditure != null", 
         "field": "Expenditure",
         "type": "quantitative",
         "scale": {
@@ -89,7 +89,7 @@
         },
         "title": "Military Expenditure (Billion USD)"
       },
-      "value": "yellow"  // Default color for countries without data
+      "value": "yellow"  
     },
     "tooltip": [
       {
