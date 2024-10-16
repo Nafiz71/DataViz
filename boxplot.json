@@ -1,0 +1,103 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 400,
+  "title": "Company Size vs Estimate Base Salary",
+  "data": {
+    "url": "https://raw.githubusercontent.com/Nafiz71/DataViz/refs/heads/main/SizeCom%5Bfiltered_top_10_job_titles.csv",
+    "format": {"type": "csv"}
+  },
+  "params": [
+    {
+      "name": "SalaryThreshold",
+      "value": 50000,
+      "bind": {
+        "input": "range",
+        "min": 50000,
+        "max": 150000,
+        "step": 1000,
+        "name": "Select Minimum Salary: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum['Estimate Base Salary'] >= SalaryThreshold"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Estimate Base Salary",
+      "type": "quantitative",
+      "title": "Estimate Base Salary (AUD)"
+    },
+    "y": {
+      "field": "Company Size",
+      "type": "quantitative",
+      "title": "Company Size",
+      "scale": {"domain": [0, 10000]},
+      "axis": {
+        "tickCount": 7,
+        "values": [250, 500, 1000, 5000, 7500, 10000],  // Custom ticks including 7500+ and 10000+
+        "labelExpr": "' ' + datum.value + ' +'"
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": "circle",
+      "encoding": {
+        "size": {
+          "field": "Company Size",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 250, 500, 1000, 5000, 7500, 10000],  // Adjust size domain for 7500+ and 10000+
+            "range": [50, 100, 150, 200, 250, 300, 400]  // Adjust range for better visual distinction
+          }
+        },
+        "color": {
+          "field": "State",
+          "type": "nominal"
+        },
+        "tooltip": [
+          {
+            "field": "Company",
+            "type": "nominal",
+            "title": "Company Name"
+          },
+          {
+            "field": "Estimate Base Salary",
+            "type": "quantitative",
+            "title": "Base Salary"
+          },
+          {
+            "field": "Company Size",
+            "type": "quantitative",
+            "title": "Company Size"
+          },
+          {
+            "field": "State",
+            "type": "nominal",
+            "title": "State"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
+    "axis": {
+      "labelFont": "Oxygen",
+      "titleFont": "Oxygen"
+    },
+    "legend": {
+      "labelFont": "Oxygen",
+      "titleFont": "Oxygen"
+    },
+    "title": {
+      "font": "Oxygen",
+      "fontSize": 16,
+      "fontWeight": 600
+    }
+  }
+}
