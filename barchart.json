@@ -1,84 +1,37 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 600,
-  "height": 500,
+  "description": "Top Job Titles by Average Base Salary",
+  "title": "Top Job Titles by Average Base Salary",
   "data": {
-    "url": "https://raw.githubusercontent.com/Nafiz71/DataViz/refs/heads/main/ne_10m_admin_1_states_provinces.json",
-    "format": {
-      "type": "topojson",
-      "feature": "ne_10m_admin_1_states_provinces"
-    }
+    "url": "https://raw.githubusercontent.com/Nafiz71/DataViz/refs/heads/main/filtered_top_10_job_titles.csv",
+    "format": {"type": "csv"}
   },
-  "params": [
-    {
-      "name": "Salary_Above",
-      "value": 50000,
-      "bind": {
-        "input": "range",
-        "min": 50000,
-        "max": 150000,
-        "step": 1000,
-        "name": "Minimum Salary (AUD): "
-      }
-    }
-  ],
+  "mark": "bar",
   "transform": [
     {
-      "filter": "datum.properties.adm0_a3 === 'AUS'"
+      "aggregate": [{"op": "mean", "field": "Estimate Base Salary", "as": "average_salary"}],
+      "groupby": ["Job Title"]
     },
     {
-      "lookup": "properties.name",
-      "from": {
-        "data": {
-          "url": "https://raw.githubusercontent.com/Nafiz71/DataViz/refs/heads/main/AustraliaDataScienceJob2.csv",
-          "format": {
-            "type": "csv"
-          }
-        },
-        "key": "State",
-        "fields": ["Estimate Base Salary"]
-      }
+      "window": [{"op": "row_number", "as": "rank"}],
+      "sort": [{ "field": "average_salary", "order": "descending" }]
     },
     {
-      "calculate": "toNumber(replace(datum['Estimate Base Salary'], /[$,]/g, ''))",
-      "as": "SalaryNum"
-    },
-    {
-      "filter": "datum.SalaryNum > Salary_Above"
+      "calculate": "datum.rank < 10 ? datum['Job Title'] : 'All Others'", "as": "ranked_job_title"
     }
   ],
-  "projection": {
-    "type": "mercator"
-  },
-  "mark": {
-    "type": "geoshape",
-    "stroke": "black",
-    "tooltip": true
-  },
   "encoding": {
-    "color": {
-      "field": "SalaryNum",
+    "x": {
+      "aggregate": "mean",
+      "field": "average_salary",
       "type": "quantitative",
-      "title": "Average Base Salary (AUD)",
-      "scale": {
-        "type": "linear",
-        "domain": [50000, 75000, 100000, 125000, 150000],
-        "range": [
-          "#ffffff",
-          "#ffcc99",
-          "#ff9966",
-          "#ff6633",
-          "#ff3300",
-          "#ff0000"
-        ]
-      }
+      "title": "Average Base Salary (AUD)"
     },
-    "tooltip": [
-      {"field": "properties.name", "type": "nominal", "title": "State Name"},
-      {"field": "SalaryNum", "type": "quantitative", "title": "Estimate Base Salary"}
-    ]
-  },
-  "config": {
-    "view": {"stroke": "transparent"}
+    "y": {
+      "sort": {"op": "mean", "field": "average_salary", "order": "descending"},
+      "field": "ranked_job_title",
+      "type": "ordinal",
+      "title": "Job Title"
+    }
   }
 }
