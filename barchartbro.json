@@ -1,0 +1,60 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Top Job Titles by Average Base Salary",
+  "title": {
+    "text": "Top Job Titles by Average Base Salary",
+    "font": "Oxygen",
+    "fontSize": 16,
+    "fontWeight": 600,
+    "color": "black"  // Title in black
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/Nafiz71/DataViz/refs/heads/main/filtered_top_10_job_titles.csv",
+    "format": {"type": "csv"}
+  },
+  "mark": {
+    "type": "bar",
+    "color": "#ff3300"  // Red-themed bars
+  },
+  "transform": [
+    {
+      "aggregate": [{"op": "mean", "field": "Estimate Base Salary", "as": "average_salary"}],
+      "groupby": ["Job Title"]
+    },
+    {
+      "window": [{"op": "row_number", "as": "rank"}],
+      "sort": [{ "field": "average_salary", "order": "descending" }]
+    },
+    {
+      "calculate": "datum.rank < 10 ? datum['Job Title'] : 'All Others'", "as": "ranked_job_title"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "aggregate": "mean",
+      "field": "average_salary",
+      "type": "quantitative",
+      "title": "Average Base Salary (AUD)",
+      "axis": {
+        "labelColor": "black",  // Black axis labels
+        "titleColor": "black"   // Black axis title
+      }
+    },
+    "y": {
+      "sort": {"op": "mean", "field": "average_salary", "order": "descending"},
+      "field": "ranked_job_title",
+      "type": "ordinal",
+      "title": "Job Title",
+      "axis": {
+        "labelColor": "black",  // Black axis labels
+        "titleColor": "black"   // Black axis title
+      }
+    }
+  },
+  "config": {
+    "axis": {
+      "labelFont": "Oxygen",
+      "titleFont": "Oxygen"
+    }
+  }
+}
