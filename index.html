@@ -26,7 +26,7 @@
     h2, h3 {
       font-weight: 700;
       margin-top: 25px;
-      text-align: center; /* Centered the titles */
+      text-align: center;
     }
 
     body {
@@ -55,6 +55,12 @@
       text-align: center;
     }
 
+    p {
+      text-align: center;
+      max-width: 750px;
+      margin: auto;
+    }
+
     .donut-chart-section {
       display: flex;
       justify-content: flex-start;
@@ -72,16 +78,6 @@
       flex: 1.7;
       padding-left: 20px;
       text-align: left;
-    }
-
-    p {
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
-
-    p:hover {
-      transform: scale(1.02);
-      color: #007BFF;
-      cursor: pointer;
     }
 
     .small-font {
@@ -104,7 +100,6 @@
       transform: scale(1.05);
       cursor: pointer;
     }
-
   </style>
 </head>
 
@@ -114,59 +109,54 @@
     <div class="pure-g">
       <div class="pure-u-1-1">
         <h1>Exploring Data Science Job Market in Australia</h1>
-        <p>This collection of visualizations provides a clear analysis of Australia's Data Science job market, focusing on key factors like job titles, base salaries, and company sizes across states. These visuals highlight the growing demand. Whether you're aligning your career path or assessing industry trends, these visualizations and insights offer valuable guidance to navigate Australia's competitive Data Science landscape.</p>
+        <p>This set of visualizations shows the Data Science job market in Australia.</p>
       </div>
     </div>
 
-    <!-- Add Title for Australia Map Choropleth -->
     <div class="pure-g">
       <div class="pure-u-1-1">
-        <h2>Salary Distribution Across Australian States</h2> <!-- Map Title, now centered -->
+        <h2>Salary Distribution Across Australian States</h2>
         <div id="ausmap" class="vis-container"></div>
       </div>
     </div>
 
     <div class="pure-g">
       <div class="pure-u-1-1">
-        <p>This choropleth map shows the distribution of average base salaries across Australian states, helping to visualize salary trends across the country.</p>
+        <p>This map shows the average salaries across states, visualizing countrywide salary trends.</p>
       </div>
     </div>
 
     <div class="pure-g">
       <div class="pure-u-1-1">
-        <h2>Estimated Salary Distribution by Job Titles</h2> <!-- Boxplot Title, now centered -->
+        <h2>Estimated Salary Distribution by Job Titles</h2>
         <div id="boxplot" class="vis-container"></div>
       </div>
     </div>
 
     <div class="pure-g">
       <div class="pure-u-1-1">
-        <p>The box plot represents the distribution of estimated base salaries for various job titles. The range and outliers highlight salary variations across different job positions.</p>
+        <p>The box plot shows salary ranges for job titles, highlighting position variations.</p>
       </div>
     </div>
 
-    <!-- Treemap visualization -->
-    <!-- Treemap visualization -->
     <div class="pure-g">
       <div class="pure-u-1-1">
         <h2>Job Title Frequencies in the Data Science Market</h2>
-        <p>The treemap below visualizes the distribution of key data-related roles in the Australian job market. It highlights how roles like Software Engineers, Data Analysts, and Consultants dominate this fast-growing sector.</p>
+        <p>The treemap below shows the frequency of data roles in the Australian market.</p>
         <div id="treemap" class="vis-container"></div>
       </div>
     </div>
 
-
     <div class="pure-g">
       <div class="pure-u-1-1">
-        <p>Among all data-related roles, Software Engineers, Data Analysts, Navy Engineers, and Consultants dominate the market. These roles are highly sought after across various industries in Australia.</p>
+        <p>Software Engineers, Data Analysts, and Consultants lead the Australian data market.</p>
       </div>
     </div>
 
     <div class="story-section">
       <h2>So What are the Top Data Science Companies to Get Hired By?</h2>
-      <p>Analyzing the growing demand for Data Science roles, several companies in Australia stand out with competitive salaries and diverse opportunities. From multinational tech giants to specialized industry leaders, these companies vary in size, sector, and location. Whether you're aiming for a large established firm or a fast-growing startup, the Data Science field offers abundant career prospects across the country</p>
-      <p>The chart below provides insights into some of the top companies for Data Scientists in Australia, offering a glimpse into where you might want to apply to kickstart or advance your Data Science career.</p>
-
+      <p>Several companies in Australia offer competitive salaries and diverse opportunities.</p>
+      <p>Data Science roles are abundant in multinational firms, startups, and growing sectors.</p>
       <img src="png1topcomDS.png" alt="Top Data Science Companies in Australia">
     </div>
 
@@ -182,8 +172,8 @@
 
     <div class="pure-g">
       <div class="pure-u-1-1 small-font">
-        <p>Visualizations by <a href="https://github.com/Nafiz71">Nafiz71</a>. The data used in this visualization is sourced from various public datasets related to job salaries and company sizes across Australia.</p>
-        <p><strong>Disclaimer:</strong> This content is for educational purposes only. Unauthorized copying of this content without permission constitutes copyright infringement. Use of this data and analysis is intended solely for personal, academic, or research purposes. Please obtain appropriate permissions for any other use.</p>
+        <p>Visualizations by <a href="https://github.com/Nafiz71">Nafiz71</a>. The data used in this visualization is sourced from public datasets on job salaries and company sizes across Australia.</p>
+        <p><strong>Disclaimer:</strong> This content is for educational purposes only. Unauthorized copying of this content without permission constitutes copyright infringement.</p>
       </div>
     </div>
   </div>
