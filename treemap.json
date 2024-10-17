@@ -3,11 +3,11 @@
   "description": "Treemap layout for Job Title frequencies with red-orange-yellow color theme.",
   "width": 960,
   "height": 500,
-  "padding": {"top": 40, "left": 2, "right": 2, "bottom": 2},  // Adjusted padding for title
-  "autosize": "pad",  // Changed autosize to 'pad' to accommodate title space
+  "padding": {"top": 40, "left": 2, "right": 2, "bottom": 2},
+  "autosize": "pad",
 
   "title": {
-    "text": "Top Data Related Jobs in  Market",
+    "text": "Top Data Related Jobs in Market",
     "anchor": "middle",
     "fontSize": 20,
     "font": "Oxygen",
