@@ -2,11 +2,11 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Top Job Titles by Average Base Salary",
   "title": {
-    "text": "Top Job Titles by Average Base Salary",
+    "text": "Top High Paying Data Jobs",
     "font": "Oxygen",
     "fontSize": 16,
     "fontWeight": 600,
-    "color": "black"  // Title in black
+    "color": "black"
   },
   "data": {
     "url": "https://raw.githubusercontent.com/Nafiz71/DataViz/refs/heads/main/filtered_top_10_job_titles.csv",
@@ -14,7 +14,7 @@
   },
   "mark": {
     "type": "bar",
-    "color": "#ff3300"  // Red-themed bars
+    "color": "#ff3300"
   },
   "transform": [
     {
@@ -36,8 +36,8 @@
       "type": "quantitative",
       "title": "Average Base Salary (AUD)",
       "axis": {
-        "labelColor": "black",  // Black axis labels
-        "titleColor": "black"   // Black axis title
+        "labelColor": "black",
+        "titleColor": "black"
       }
     },
     "y": {
@@ -46,8 +46,8 @@
       "type": "ordinal",
       "title": "Job Title",
       "axis": {
-        "labelColor": "black",  // Black axis labels
-        "titleColor": "black"   // Black axis title
+        "labelColor": "black",
+        "titleColor": "black"
       }
     }
   },
