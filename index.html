@@ -85,34 +85,10 @@
       cursor: pointer; /* Changes the cursor to indicate interactivity */
     }
 
-    /* Play button styles */
-    .play-button {
-      padding: 10px 20px;
-      background-color: #007BFF;
-      color: white;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-bottom: 20px;
-    }
-
-    .play-button:hover {
-      background-color: #0056b3;
-    }
   </style>
 </head>
 
 <body>
-
-  <!-- Play button for background music -->
-  <button class="play-button" onclick="playMusic()">Play Background Music</button>
-
-  <!-- Add audio for background music -->
-  <audio id="bg-music" loop>
-    <source src="InterstellarBgMusic.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-  </audio>
 
   <div class="page">
     <!-- Title and subtitle -->
@@ -185,11 +161,6 @@
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
-    // Function to play music when play button is clicked
-    function playMusic() {
-      var audio = document.getElementById("bg-music");
-      audio.play();
-    }
   </script>
 
 </body>
