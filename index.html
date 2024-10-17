@@ -120,4 +120,70 @@
         <div id="ausmap" class="vis-container"></div>
       </div>
     </div>
-   
+    <!-- end pure grid group -->
+
+    <!-- Description of the Choropleth -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <p>This choropleth map shows the distribution of average base salaries across Australian states, helping to visualize salary trends across the country.</p>
+      </div>
+    </div>
+
+    <!-- Box Plot of Salary Distribution -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div id="boxplot" class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- Description of the Box Plot -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <p>The box plot represents the distribution of estimated base salaries for various job titles. The range and outliers highlight salary variations across different job positions.</p>
+      </div>
+    </div>
+
+    <!-- Bar Chart of Top Job Titles with Storytelling -->
+    <div class="pure-g story-container">
+      <div class="vis-story">
+        <div id="barchart" class="vis-container"></div>
+      </div>
+      <div class="story-text">
+        <h2>Understanding the Top Job Titles</h2>
+        <p>The bar chart to the left showcases the top 10 job titles in terms of average salary. This comparison allows us to see which roles are most financially rewarding in the Australian job market.</p>
+        <p>Unsurprisingly, technical roles such as Data Scientists and Software Engineers dominate the top positions, reflecting the high demand for these skills across industries. Jobs related to business development and management are also among the top earners, signifying the importance of strategic leadership in the job market.</p>
+        <p>This visualization helps job seekers and employers alike understand which roles are compensated the most, allowing them to align their career aspirations with market trends.</p>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- Attribution -->
+    <div class="pure-g">
+      <div class="pure-u-1-1 small-font">
+        <p>Visualizations by <a href="https://github.com/Nafiz71">Nafiz71</a>. The data used in this visualization is sourced from various public datasets related to job salaries and company sizes across Australia.</p>
+      </div>
+    </div>
+  </div> <!-- end page -->
+
+  <script type="text/javascript">
+    var specAusMap = "./ausmapchloropeth.json";
+    var specBoxPlot = "./boxplot.json";
+    var specBarChart = "./barchart.json";
+
+    vegaEmbed('#ausmap', specAusMap, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#boxplot', specBoxPlot, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#barchart', specBarChart, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  </script>
+
+</body>
+
+</html>
