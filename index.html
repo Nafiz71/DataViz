@@ -9,7 +9,8 @@
   <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
     integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -20,13 +21,6 @@
     h1 {
       font-weight: 900;
       text-align: center;
-      margin-bottom: 20px;
-    }
-
-    h2, h3 {
-      font-weight: 700;
-      margin-top: 25px;
-      text-align: left;
     }
 
     body {
@@ -57,29 +51,25 @@
 
     .donut-chart-section {
       display: flex;
-      justify-content: flex-start;
+      justify-content: flex-start; /* Align chart to the left */
       align-items: flex-start;
       margin-top: 50px;
-      gap: 50px;
+      gap: 50px; /* Increase space between the chart and paragraph */
     }
 
     .chart-container {
-      flex: 0.3;
-      text-align: left;
+      flex: 0.3; /* Reduce the size of the donut chart */
+      text-align: left; /* Align chart to the left */
     }
 
     .explanation {
-      flex: 1.7;
+      flex: 1.7; /* Increase the space for the paragraph */
       padding-left: 20px;
       text-align: left;
     }
 
     p {
       transition: transform 0.3s ease, color 0.3s ease;
-      max-width: 700px;
-      text-align: left;
-      margin: auto;
-      line-height: 1.7;
     }
 
     p:hover {
@@ -117,28 +107,40 @@
   <div class="page">
     <div class="pure-g">
       <div class="pure-u-1-1">
-        <h1>Data Science Job Market in Australia</h1>
-        <p>This set of visualizations provides insights into key factors in the Australian Data Science job market. Explore salary trends, company sizes, and hiring patterns across states.</p>
+        <h1>Exploring Data Science Job Market in Australia</h1>
+        <p>This collection of visualizations offers a comprehensive analysis of the Data Science job market in Australia. We focus on key factors such as job titles, estimated base salaries, and the sizes of companies hiring across various states. By examining salary distributions and geographic patterns, these visualizations provide valuable insights into the evolving demand for Data Science roles and the economic landscape influencing them. Whether you're a job seeker looking to align your career trajectory or an employer seeking to understand industry trends, these insights can help you navigate Australia's competitive Data Science market.</p>
       </div>
     </div>
 
     <div class="pure-g">
       <div class="pure-u-1-1">
         <div id="ausmap" class="vis-container"></div>
-        <p>Average salaries across Australian states. The map shows salary differences by region, helping to identify where Data Science roles are most lucrative.</p>
+      </div>
+    </div>
+
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <p>This choropleth map shows the distribution of average base salaries across Australian states, helping to visualize salary trends across the country.</p>
       </div>
     </div>
 
     <div class="pure-g">
       <div class="pure-u-1-1">
         <div id="boxplot" class="vis-container"></div>
-        <p>Box plot highlighting the salary distribution for various job titles. Salary variations and outliers show the range across different positions.</p>
+      </div>
+    </div>
+
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <p>The box plot represents the distribution of estimated base salaries for various job titles. The range and outliers highlight salary variations across different job positions.</p>
       </div>
     </div>
 
     <div class="story-section">
-      <h2>Top Data Science Companies</h2>
-      <p>Demand for Data Scientists is growing across industries. Companies hiring range from multinational tech giants to niche firms. The opportunities for growth in Data Science are abundant.</p>
+      <h2>So What are the Top Data Science Companies to Get Hired By?</h2>
+      <p>As the demand for Data Science roles increases, several companies are standing out in offering competitive salaries and dynamic career opportunities. From multinational tech giants to specialized industry leaders, the companies hiring Data Scientists in Australia vary widely in size, sector, and location. Whether you are looking to work for a large, established firm or a fast-growing startup, the opportunities in Data Science are abundant.</p>
+      <p>The chart below provides insights into some of the top companies for Data Scientists in Australia, offering a glimpse into where you might want to apply to kickstart or advance your Data Science career.</p>
+
       <img src="png1topcomDS.png" alt="Top Data Science Companies in Australia">
     </div>
 
@@ -147,15 +149,15 @@
         <div id="donutchart" class="vis-container"></div>
       </div>
       <div class="explanation">
-        <h3>Public & Government Agencies Lead</h3>
-        <p>Government and public agencies lead the demand for Data Science talent in Australia. These sectors offer stable, high-paying opportunities, especially in data-driven industries like healthcare, education, and infrastructure.</p>
+        <h3>Public and Government Companies Lead the Data Science Market</h3>
+        <p>From the chart, it's evident that public and government agencies dominate the data science job market in Australia. These sectors provide stability, competitive pay, and opportunities for professionals to make an impact on large-scale projects. As industries such as healthcare, education, and infrastructure become more data-driven, the demand for data science professionals in these areas continues to rise. Job seekers looking for long-term, impactful roles should consider opportunities in these sectors.</p>
       </div>
     </div>
 
     <div class="pure-g">
       <div class="pure-u-1-1 small-font">
-        <p>Visualizations by <a href="https://github.com/Nafiz71">Nafiz71</a>. Data is sourced from public datasets related to job salaries and company sizes across Australia.</p>
-        <p><strong>Disclaimer:</strong> This content is for educational purposes. Unauthorized copying of this content constitutes copyright infringement. Use this data for personal, academic, or research purposes only.</p>
+        <p>Visualizations by <a href="https://github.com/Nafiz71">Nafiz71</a>. The data used in this visualization is sourced from various public datasets related to job salaries and company sizes across Australia.</p>
+        <p><strong>Disclaimer:</strong> This content is for educational purposes only. Unauthorized copying of this content without permission constitutes copyright infringement. Use of this data and analysis is intended solely for personal, academic, or research purposes. Please obtain appropriate permissions for any other use.</p>
       </div>
     </div>
   </div>
