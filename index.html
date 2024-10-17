@@ -54,6 +54,16 @@
       text-align: center;
     }
 
+    p {
+      transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+    }
+
+    p:hover {
+      transform: scale(1.02); /* Slightly enlarges the paragraph text on hover */
+      color: #007BFF; /* Changes the color on hover */
+      cursor: pointer;
+    }
+
     .small-font {
       font-size: 13px;
       text-align: center;
