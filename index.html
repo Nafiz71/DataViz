@@ -1,81 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <!-- Import Vega & Vega-Lite -->
-  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-  
-  <!-- CSS file -->
-  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
-  
-  <title>Military Expenditure Visualization</title>
+  <title>Australian Job Market Visualizations</title>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+  <!-- Import vega-embed -->
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+
+  <!-- custom style -->
   <style>
-    .text-center {
-        text-align: center;
+    * {
+      font-family: 'Oxygen', sans-serif;
+      line-height: 1.5;
     }
-    .description {
-        margin: 20px 0;
-        font-size: 16px;
+
+    h1 {
+      font-weight: 900;
+    }
+
+    body {
+      background-color: lightgray;
+    }
+
+    .page {
+      width: 750px;
+      background-color: white;
+      margin: auto;
+      padding: 70px;
+      padding-top: 35px;
+    }
+
+    .vis-container {
+      width: 100%;
+    }
+
+    .description h2,
+    h1 {
+      margin-top: 10px;
+    }
+
+    .description-right {
+      padding-left: 10px;
+    }
+
+    .description-left {
+      padding-right: 10px;
+    }
+
+    .pure-g {
+      margin-bottom: 25px;
+    }
+
+    .small-font {
+      font-size: 13px;
     }
   </style>
 </head>
+
 <body>
 
-<!-- Page Title -->
-<h1 class="text-center">Military Expenditure per Country (2012-2018)</h1>
+  <div class="page">
+    <!-- Title and subtitle -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h1>Exploring the Australian Job Market</h1>
+        <p>This collection of visualizations offers insights into the job market in Australia, with a focus on job titles, salary estimates, and company sizes across various states.</p>
+      </div>
+    </div>
+    <!-- end pure grid group -->
 
-<!-- Introductory Section -->
-<div class="text-center description">
-  <p>Military expenditure plays a crucial role in the defense capabilities of countries around the globe. In this visualization, we will explore how military spending has evolved over time for the top military spenders, including an in-depth look at each country's spending trends and a global comparison.</p>
-</div>
+    <!-- Australia Map Choropleth -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div id="ausmap" class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
 
-<!-- Div for the first visualization (milexpen.json) -->
-<div id="military_expenditure_viz" class="text-center"></div>
+    <!-- Description of the Choropleth -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <p>This choropleth map shows the distribution of average base salaries across Australian states, helping to visualize salary trends across the country.</p>
+      </div>
+    </div>
 
-<!-- Annotation for First Visualization -->
-<div class="text-center description">
-  <h2>Military Expenditure Trends (2012-2018)</h2>
-  <p>This line chart shows the yearly military expenditure of key countries from 2012 to 2018. Each line represents a country's military spending in billions of US dollars, allowing for a direct comparison of how these figures have changed over time.</p>
-</div>
+    <!-- Box Plot of Salary Distribution -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div id="boxplot" class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
 
-<!-- Div for the second visualization (chart2.json) -->
-<div id="second_chart_viz" class="text-center"></div>
+    <!-- Description of the Box Plot -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <p>The box plot represents the distribution of estimated base salaries for various job titles. The range and outliers highlight salary variations across different job positions.</p>
+      </div>
+    </div>
 
-<!-- Annotation for Second Visualization -->
-<div class="text-center description">
-  <h2>Top Military Spenders in 2018</h2>
-  <p>This bar chart highlights the military expenditures of the top countries in 2018. Hover over each bar to view detailed figures for each country.</p>
-</div>
+    <!-- Bar Chart of Top Job Titles -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div id="barchart" class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
 
-<!-- Div for the new map visualization (worldmilmap.json) -->
-<div id="world_military_map_viz" class="text-center"></div>
+    <!-- Description of the Bar Chart -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <p>The bar chart showcases the top 10 job titles in terms of average salary. It helps to compare how salaries vary between different job roles in the Australian job market.</p>
+      </div>
+    </div>
 
-<!-- Annotation for Map Visualization -->
-<div class="text-center description">
-  <h2>Global Military Expenditure in 2018</h2>
-  <p>In this choropleth map, countries are color-coded according to their military expenditure in 2018. The darker shades indicate higher spending. This visualization helps to provide a global overview of defense budgets and where the most significant investments are being made.</p>
-  <p>* Use the filter slider to adjust the minimum expenditure amount shown on the map.</p>
-</div>
+    <!-- Attribution -->
+    <div class="pure-g">
+      <div class="pure-u-1-1 small-font">
+        <p>Visualizations by <a href="https://github.com/Nafiz71">Nafiz71</a>. The data used in this visualization is sourced from various public datasets related to job salaries and company sizes across Australia.</p>
+      </div>
+    </div>
+  </div> <!-- end page -->
 
-<script type="text/javascript">
+  <script type="text/javascript">
+    var specAusMap = "./Visualisations/ausmapchloropeth.json";
+    var specBoxPlot = "./Visualisations/boxplot.json";
+    var specBarChart = "./Visualisations/barchart.json";
 
-  // Embed the first visualization (milexpen.json)
-  vegaEmbed('#military_expenditure_viz', 'milexpen.json').then(function(result) {
-    // Access the Vega view instance for the first visualization
-  }).catch(console.error);
+    vegaEmbed('#ausmap', specAusMap, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
 
-  // Embed the second visualization (chart2.json)
-  vegaEmbed('#second_chart_viz', 'chart2.json').then(function(result) {
-    // Access the Vega view instance for the second visualization
-  }).catch(console.error);
+    vegaEmbed('#boxplot', specBoxPlot, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
 
-  // Embed the new world military expenditure map (worldmilmap.json)
-  vegaEmbed('#world_military_map_viz', 'chart1.vg.json').then(function(result) {
-    // Access the Vega view instance for the new map visualization
-  }).catch(console.error);
-
-</script>
+    vegaEmbed('#barchart', specBarChart, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  </script>
 
 </body>
+
 </html>
