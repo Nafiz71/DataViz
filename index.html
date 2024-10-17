@@ -23,6 +23,12 @@
       text-align: center;
     }
 
+    h2, h3 {
+      font-weight: 700;
+      margin-top: 25px;
+      text-align: left;
+    }
+
     body {
       background-color: lightgray;
     }
@@ -51,19 +57,19 @@
 
     .donut-chart-section {
       display: flex;
-      justify-content: flex-start; /* Align chart to the left */
+      justify-content: flex-start;
       align-items: flex-start;
       margin-top: 50px;
-      gap: 50px; /* Increase space between the chart and paragraph */
+      gap: 50px;
     }
 
     .chart-container {
-      flex: 0.3; /* Reduce the size of the donut chart */
-      text-align: left; /* Align chart to the left */
+      flex: 0.3;
+      text-align: left;
     }
 
     .explanation {
-      flex: 1.7; /* Increase the space for the paragraph */
+      flex: 1.7;
       padding-left: 20px;
       text-align: left;
     }
@@ -112,8 +118,10 @@
       </div>
     </div>
 
+    <!-- Add Title for Australia Map Choropleth -->
     <div class="pure-g">
       <div class="pure-u-1-1">
+        <h2>Salary Distribution Across Australian States</h2> <!-- Map Title -->
         <div id="ausmap" class="vis-container"></div>
       </div>
     </div>
@@ -126,6 +134,7 @@
 
     <div class="pure-g">
       <div class="pure-u-1-1">
+        <h2>Estimated Salary Distribution by Job Titles</h2>
         <div id="boxplot" class="vis-container"></div>
       </div>
     </div>
