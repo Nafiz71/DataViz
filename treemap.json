@@ -1,0 +1,123 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Treemap layout for Job Title frequencies with red-orange-yellow color theme.",
+  "width": 960,
+  "height": 500,
+  "padding": {"top": 40, "left": 2, "right": 2, "bottom": 2},  // Adjusted padding for title
+  "autosize": "pad",  // Changed autosize to 'pad' to accommodate title space
+
+  "title": {
+    "text": "Top Data Related Jobs in  Market",
+    "anchor": "middle",
+    "fontSize": 20,
+    "font": "Oxygen",
+    "dy": -10,
+    "fontWeight": "bold",
+    "color": "black"
+  },
+
+  "data": [
+    {
+      "name": "source",
+      "url": "https://raw.githubusercontent.com/Nafiz71/DataViz/refs/heads/main/SizeCom%5Bfiltered_top_10_job_titles.csv",
+      "format": {"type": "csv"},
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": ["Job Title"],
+          "fields": ["Job Title"],
+          "ops": ["count"],
+          "as": ["count"]
+        },
+        {
+          "type": "collect",
+          "sort": {"field": "count", "order": "descending"}
+        }
+      ]
+    },
+    {
+      "name": "tree",
+      "source": "source",
+      "transform": [
+        {
+          "type": "nest",
+          "keys": ["Job Title"]
+        },
+        {
+          "type": "treemap",
+          "field": "count",
+          "sort": {"field": "count"},
+          "round": true,
+          "size": [{"signal": "width"}, {"signal": "height"}],
+          "paddingInner": 1
+        }
+      ]
+    }
+  ],
+
+  "scales": [
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": {"data": "tree", "field": "Job Title"},
+      "range": [
+        "#ff0000", "#ff3300", "#ff6633", "#ff9966", "#ffcc99",
+        "#ffe5b4", "#ffff99", "#ffff66", "#ffff33", "#ffff00"
+      ]
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "rect",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "fill": {"scale": "color", "field": "Job Title"}
+        },
+        "update": {
+          "x": {"field": "x0"},
+          "y": {"field": "y0"},
+          "x2": {"field": "x1"},
+          "y2": {"field": "y1"},
+          "tooltip": {"signal": "{'Job Title': datum['Job Title'], 'Count': datum.count}"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "font": {"value": "Oxygen"},
+          "align": {"value": "center"},
+          "baseline": {"value": "middle"},
+          "fill": {"value": "#000"},
+          "text": {"field": "Job Title"},
+          "fontSize": {"value": 12},
+          "fillOpacity": {"value": 0.8}
+        },
+        "update": {
+          "x": {"signal": "0.5 * (datum.x0 + datum.x1)"},
+          "y": {"signal": "0.5 * (datum.y0 + datum.y1)"}
+        }
+      }
+    }
+  ],
+
+  "config": {
+    "axis": {
+      "labelFont": "Oxygen",
+      "titleFont": "Oxygen"
+    },
+    "legend": {
+      "labelFont": "Oxygen",
+      "titleFont": "Oxygen"
+    },
+    "title": {
+      "font": "Oxygen",
+      "fontSize": 16,
+      "fontWeight": 600
+    }
+  }
+}
