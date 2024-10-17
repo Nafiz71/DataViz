@@ -100,6 +100,25 @@
       transform: scale(1.05);
       cursor: pointer;
     }
+
+    .bar-chart-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 50px;
+      gap: 50px;
+    }
+
+    .bar-chart-container {
+      flex: 0.7;
+      text-align: left;
+    }
+
+    .bar-explanation {
+      flex: 0.3;
+      padding-left: 20px;
+      text-align: left;
+    }
   </style>
 </head>
 
@@ -171,6 +190,18 @@
       </div>
     </div>
 
+    <!-- Bar Chart Section -->
+    <div class="bar-chart-section">
+      <div class="bar-chart-container">
+        <div id="barchartbro" class="vis-container"></div>
+      </div>
+      <div class="bar-explanation">
+        <h3>Top Data Science Job Salaries</h3>
+        <p>Engineers have the highest average salary, over $120K.</p>
+        <p>Navy Engineers have the lowest, averaging below $80K.</p>
+      </div>
+    </div>
+
     <div class="pure-g">
       <div class="pure-u-1-1 small-font">
         <p>Visualizations by <a href="https://github.com/Nafiz71">Nafiz71</a>. The data used in this visualization is sourced from public datasets on job salaries and company sizes across Australia.</p>
@@ -184,6 +215,7 @@
     var specBoxPlot = "./boxplot.json";
     var specDonutChart = "./donutchart.json";
     var specTreemap = "./treemapup.json";
+    var specBarChart = "./barchartbro.json";
 
     vegaEmbed('#ausmap', specAusMap, { "actions": false }).then(function (result) {
     }).catch(console.error);
@@ -195,6 +227,9 @@
     }).catch(console.error);
 
     vegaEmbed('#treemap', specTreemap, { "actions": false }).then(function (result) {
+    }).catch(console.error);
+
+    vegaEmbed('#barchartbro', specBarChart, { "actions": false }).then(function (result) {
     }).catch(console.error);
   </script>
 
