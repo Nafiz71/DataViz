@@ -176,4 +176,27 @@
         <p><strong>Disclaimer:</strong> This content is for educational purposes only. Unauthorized copying of this content without permission constitutes copyright infringement. Use of this data and analysis is intended solely for personal, academic, or research purposes. Please obtain appropriate permissions for any other use.</p>
       </div>
     </div>
-  </div> <!-- end page
+  </div> <!-- end page -->
+
+  <script type="text/javascript">
+    var specAusMap = "./ausmapchloropeth.json";
+    var specBoxPlot = "./boxplot.json";
+    var specDonutChart = "./donutchart.json";
+
+    vegaEmbed('#ausmap', specAusMap, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#boxplot', specBoxPlot, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#donutchart', specDonutChart, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+  </script>
+
+</body>
+
+</html>
