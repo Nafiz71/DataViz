@@ -66,12 +66,13 @@
       justify-content: space-around;
       align-items: flex-start;
       margin-top: 50px;
-      gap: 50px;
+      gap: 20px;
     }
 
     .chart-container {
       flex: 1;
       text-align: left;
+      max-width: 500px;
     }
 
     .small-font {
@@ -196,7 +197,7 @@
     vegaEmbed('#donutchart', specDonutChart, { "actions": false }).then(function (result) {
     }).catch(console.error);
 
-    vegaEmbed('#treemap', specTreemap, { "actions": false }).then(function (result) {
+    vegaEmbed('#treemap', specTreemap, { "actions": false, width: 400 }).then(function (result) {
     }).catch(console.error);
 
     vegaEmbed('#barchartbro', specBarChart, { "actions": false }).then(function (result) {
