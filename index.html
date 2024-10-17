@@ -54,13 +54,30 @@
       text-align: center;
     }
 
+    .donut-chart-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 50px;
+    }
+
+    .chart-container {
+      flex: 1;
+    }
+
+    .explanation {
+      flex: 1;
+      padding-left: 40px;
+      text-align: left;
+    }
+
     p {
-      transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+      transition: transform 0.3s ease, color 0.3s ease;
     }
 
     p:hover {
-      transform: scale(1.02); /* Slightly enlarges the paragraph text on hover */
-      color: #007BFF; /* Changes the color on hover */
+      transform: scale(1.02);
+      color: #007BFF;
       cursor: pointer;
     }
 
@@ -77,12 +94,12 @@
     .story-section img {
       max-width: 100%;
       height: auto;
-      transition: transform 0.3s ease; /* Smooth transition for the hover effect */
+      transition: transform 0.3s ease;
     }
 
     .story-section img:hover {
-      transform: scale(1.05); /* Slightly enlarges the image on hover */
-      cursor: pointer; /* Changes the cursor to indicate interactivity */
+      transform: scale(1.05);
+      cursor: pointer;
     }
 
   </style>
@@ -140,6 +157,17 @@
       <img src="png1topcomDS.png" alt="Top Data Science Companies in Australia">
     </div>
 
+    <!-- Donut chart and explanation -->
+    <div class="donut-chart-section">
+      <div class="chart-container">
+        <div id="donutchart" class="vis-container"></div>
+      </div>
+      <div class="explanation">
+        <h3>Public and Government Companies Lead the Data Science Market</h3>
+        <p>From the chart, it's evident that public and government agencies dominate the data science job market in Australia. These sectors provide stability, competitive pay, and opportunities for professionals to make an impact on large-scale projects. As industries such as healthcare, education, and infrastructure become more data-driven, the demand for data science professionals in these areas continues to rise. Job seekers looking for long-term, impactful roles should consider opportunities in these sectors.</p>
+      </div>
+    </div>
+
     <!-- Attribution -->
     <div class="pure-g">
       <div class="pure-u-1-1 small-font">
@@ -152,12 +180,17 @@
   <script type="text/javascript">
     var specAusMap = "./ausmapchloropeth.json";
     var specBoxPlot = "./boxplot.json";
+    var specDonutChart = "./donutchart.json";
 
     vegaEmbed('#ausmap', specAusMap, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
     vegaEmbed('#boxplot', specBoxPlot, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#donutchart', specDonutChart, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
