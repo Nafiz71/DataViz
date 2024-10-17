@@ -16,11 +16,11 @@
   },
   "params": [
     {
-      "name": "CompanyTypeFilter",  // Name of the parameter for filtering
-      "value": "All",               // Default value
+      "name": "CompanyTypeFilter",  
+      "value": "All",              
       "bind": {
         "input": "select",
-        "options": [                 // Options for filtering
+        "options": [               
           "All", 
           "Public Company",
           "Private Company",
@@ -28,7 +28,7 @@
           "Non-profit Organization",
           "Other"
         ],
-        "name": "Select Company Type: "  // Label for the dropdown
+        "name": "Select Company Type: "  
       }
     }
   ],
