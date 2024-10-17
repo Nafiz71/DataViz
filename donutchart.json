@@ -1,10 +1,10 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 600,
-  "height": 400,
+  "width": 400,  // Reduced width
+  "height": 300,  // Reduced height
   "title": {
     "text": "Distribution of Company Types",
-    "fontSize": 20,
+    "fontSize": 18,  // Slightly reduced font size for title
     "fontWeight": "bold",
     "font": "Oxygen",
     "anchor": "middle",
@@ -50,8 +50,8 @@
       "title": "Company Type",
       "legend": {
         "orient": "right",
-        "labelFontSize": 12,
-        "titleFontSize": 14,
+        "labelFontSize": 10,  // Reduced font size for legend labels
+        "titleFontSize": 12,  // Reduced font size for legend title
         "titleFontWeight": "bold",
         "labelFont": "Oxygen",
         "titleFont": "Oxygen"
@@ -83,8 +83,8 @@
   },
   "mark": {
     "type": "arc",
-    "innerRadius": 70,
-    "outerRadius": 150,
+    "innerRadius": 50,  // Reduced inner radius for a smaller donut
+    "outerRadius": 120,  // Reduced outer radius
     "stroke": "#fff",
     "strokeWidth": 2
   },
@@ -102,7 +102,7 @@
     },
     "title": {
       "font": "Oxygen",
-      "fontSize": 18,
+      "fontSize": 16,  // Reduced font size for title
       "fontWeight": 600
     }
   }
