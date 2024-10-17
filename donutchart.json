@@ -6,29 +6,29 @@
     "text": "Distribution of Company Types",
     "fontSize": 20,
     "fontWeight": "bold",
-    "font": "Oxygen", 
+    "font": "Oxygen",
     "anchor": "middle",
     "color": "black"
   },
   "data": {
     "url": "https://raw.githubusercontent.com/Nafiz71/DataViz/refs/heads/main/SizeCom%5Bfiltered_top_10_job_titles.csv",
-    "format": {"type": "csv"}
+    "format": { "type": "csv" }
   },
   "params": [
     {
-      "name": "CompanyTypeFilter",  
-      "value": "All",              
+      "name": "CompanyTypeFilter",
+      "value": "All",
       "bind": {
         "input": "select",
-        "options": [               
-          "All", 
+        "options": [
+          "All",
           "Public Company",
           "Private Company",
           "Government Agency",
           "Non-profit Organization",
           "Other"
         ],
-        "name": "Select Company Type: "  
+        "name": "Select Company Type: "
       }
     }
   ],
@@ -53,7 +53,7 @@
         "labelFontSize": 12,
         "titleFontSize": 14,
         "titleFontWeight": "bold",
-        "labelFont": "Oxygen",  
+        "labelFont": "Oxygen",
         "titleFont": "Oxygen"
       },
       "scale": {
@@ -75,7 +75,7 @@
       },
       {
         "field": "Company",
-        "type": "nominal",
+        "type": "quantitative",
         "aggregate": "count",
         "title": "Number of Companies"
       }
