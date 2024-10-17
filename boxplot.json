@@ -9,20 +9,20 @@
   },
   "params": [
     {
-      "name": "SalaryThreshold",
-      "value": 50000,
+      "name": "CompanySizeThreshold",
+      "value": 1000,
       "bind": {
         "input": "range",
-        "min": 50000,
-        "max": 150000,
-        "step": 1000,
-        "name": "Select Minimum Salary: "
+        "min": 250,
+        "max": 10000,
+        "step": 250,
+        "name": "Select Minimum Company Size: "
       }
     }
   ],
   "transform": [
     {
-      "filter": "datum['Estimate Base Salary'] >= SalaryThreshold"
+      "filter": "datum['Company Size'] >= CompanySizeThreshold"
     }
   ],
   "encoding": {
@@ -38,7 +38,7 @@
       "scale": {"domain": [0, 10000]},
       "axis": {
         "tickCount": 7,
-        "values": [250, 500, 1000, 5000, 7500, 10000],  // Custom ticks including 7500+ and 10000+
+        "values": [250, 500, 1000, 5000, 7500, 10000],
         "labelExpr": "' ' + datum.value + ' +'"
       }
     }
@@ -51,8 +51,8 @@
           "field": "Company Size",
           "type": "quantitative",
           "scale": {
-            "domain": [0, 250, 500, 1000, 5000, 7500, 10000],  // Adjust size domain for 7500+ and 10000+
-            "range": [50, 100, 150, 200, 250, 300, 400]  // Adjust range for better visual distinction
+            "domain": [0, 250, 500, 1000, 5000, 7500, 10000],
+            "range": [50, 100, 150, 200, 250, 300, 400]
           }
         },
         "color": {
