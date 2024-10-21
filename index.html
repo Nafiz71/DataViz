@@ -180,6 +180,12 @@
       <img src="png1topcomDS.png" alt="Top Data Science Companies in Australia">
     </div>
 
+    <!-- New Section for Bar Chart Title and Story -->
+    <div class="story-section">
+      <h2>How Do Job Titles Compare in Terms of Salary?</h2>
+      <p>Software Engineers, Data Scientists, and Engineers top the salary chart with an average base salary of over $120K, showcasing their high demand in the market. In contrast, Data Analysts and related roles tend to earn below $100K, emphasizing the salary gap between technical and analytical positions in the Data Science field.</p>
+    </div>
+
     <div class="donut-chart-section">
       <div class="chart-container">
         <div id="donutchart" class="vis-container"></div>
@@ -221,19 +227,4 @@
     vegaEmbed('#ausmap', specAusMap, { "actions": false }).then(function (result) {
     }).catch(console.error);
 
-    vegaEmbed('#boxplot', specBoxPlot, { "actions": false }).then(function (result) {
-    }).catch(console.error);
-
-    vegaEmbed('#donutchart', specDonutChart, { "actions": false }).then(function (result) {
-    }).catch(console.error);
-
-    vegaEmbed('#treemap', specTreemap, { "actions": false }).then(function (result) {
-    }).catch(console.error);
-
-    vegaEmbed('#barchartbro', specBarChart, { "actions": false }).then(function (result) {
-    }).catch(console.error);
-  </script>
-
-</body>
-
-</html>
+    vegaEmbed('#boxplot', specBoxPlot
