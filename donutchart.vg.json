@@ -1,0 +1,109 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 400,
+  "height": 300,
+  "title": {
+    "text": "Distribution of Company Types",
+    "fontSize": 18,
+    "fontWeight": "bold",
+    "font": "Oxygen",
+    "anchor": "middle",
+    "color": "black"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/Nafiz71/DataViz/refs/heads/main/SizeCom%5Bfiltered_top_10_job_titles.csv",
+    "format": { "type": "csv" }
+  },
+  "params": [
+    {
+      "name": "CompanyTypeFilter",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All",
+          "Public Company",
+          "Private Company",
+          "Government Agency",
+          "Non-profit Organization",
+          "Other"
+        ],
+        "name": "Select Company Type: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "(CompanyTypeFilter === 'All' || datum['Company Type'] === CompanyTypeFilter) && datum['Company Type'] != null && datum['Company Type'] != ''"
+    }
+  ],
+  "encoding": {
+    "theta": {
+      "field": "Company Type",
+      "aggregate": "count",
+      "type": "quantitative",
+      "title": "Number of Companies"
+    },
+    "color": {
+      "field": "Company Type",
+      "type": "nominal",
+      "title": "Company Type",
+      "legend": {
+        "orient": "right",
+        "labelFontSize": 10,
+        "titleFontSize": 12,
+        "titleFontWeight": "bold",
+        "labelFont": "Oxygen",
+        "titleFont": "Oxygen"
+      },
+      "scale": {
+        "range": [
+          "#ffcc99",
+          "#ff9966",
+          "#ff6633",
+          "#ff3300",
+          "#ff0000",
+          "#cc0000"
+        ]
+      }
+    },
+    "tooltip": [
+      {
+        "field": "Company Type",
+        "type": "nominal",
+        "title": "Company Type"
+      },
+      {
+        "field": "Company",
+        "type": "quantitative",
+        "aggregate": "count",
+        "title": "Number of Companies"
+      }
+    ]
+  },
+  "mark": {
+    "type": "arc",
+    "innerRadius": 50,
+    "outerRadius": 120,
+    "stroke": "#fff",
+    "strokeWidth": 2
+  },
+  "view": {
+    "stroke": null
+  },
+  "config": {
+    "axis": {
+      "labelFont": "Oxygen",
+      "titleFont": "Oxygen"
+    },
+    "legend": {
+      "labelFont": "Oxygen",
+      "titleFont": "Oxygen"
+    },
+    "title": {
+      "font": "Oxygen",
+      "fontSize": 16,
+      "fontWeight": 600
+    }
+  }
+}
