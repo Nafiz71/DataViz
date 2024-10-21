@@ -42,8 +42,7 @@
     }
 
     body {
-      background-color: #f5f7fa; /* Updated background color for body */
-      padding-top: 50px; /* Added padding for spacing */
+      background-color: lightgray;
     }
 
     .page {
@@ -56,8 +55,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      border-radius: 10px; /* Rounded corners */
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Added shadow effect */
     }
 
     .vis-container {
@@ -225,7 +222,7 @@
     var specAusMap = "./ausmapchloropeth.json";
     var specBoxPlot = "./boxplot.json";
     var specTreemap = "./treemapup.json";
-    var specBarChart = "./barchart2.vg.json";
+    var specBarChart = "./barchart.vg.json";
     var specDonutChart = "./dohoe.vg.json"; /* Link to the donut chart spec */
 
     vegaEmbed('#ausmap', specAusMap, { "actions": false }).then(function (result) {
