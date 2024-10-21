@@ -8,6 +8,8 @@
     "fontWeight": 600,
     "color": "black"
   },
+  "width": 600,
+  "height": 400,
   "data": {
     "url": "https://raw.githubusercontent.com/Nafiz71/DataViz/refs/heads/main/filtered_top_10_job_titles.csv",
     "format": {"type": "csv"}
@@ -37,7 +39,8 @@
       "title": "Average Base Salary (AUD)",
       "axis": {
         "labelColor": "black",
-        "titleColor": "black"
+        "titleColor": "black",
+        "titleFontWeight": "bold"  // Make axis title bold
       }
     },
     "y": {
@@ -47,14 +50,67 @@
       "title": "Job Title",
       "axis": {
         "labelColor": "black",
-        "titleColor": "black"
+        "titleColor": "black",
+        "labelFontWeight": "bold",  // Make bar names bold
+        "titleFontWeight": "bold"  // Make axis title bold
       }
     }
   },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "color": "#ff3300"
+      },
+      "encoding": {
+        "x": {
+          "aggregate": "mean",
+          "field": "average_salary",
+          "type": "quantitative",
+          "title": "Average Base Salary (AUD)"
+        },
+        "y": {
+          "sort": {"op": "mean", "field": "average_salary", "order": "descending"},
+          "field": "ranked_job_title",
+          "type": "ordinal",
+          "title": "Job Title"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 3,
+        "fontWeight": "bold",  // Make values bold
+        "color": "black"
+      },
+      "encoding": {
+        "text": {
+          "aggregate": "mean",
+          "field": "average_salary",
+          "type": "quantitative",
+          "format": ".2f" 
+        },
+        "x": {
+          "aggregate": "mean",
+          "field": "average_salary",
+          "type": "quantitative"
+        },
+        "y": {
+          "sort": {"op": "mean", "field": "average_salary", "order": "descending"},
+          "field": "ranked_job_title",
+          "type": "ordinal"
+        }
+      }
+    }
+  ],
   "config": {
     "axis": {
       "labelFont": "Oxygen",
-      "titleFont": "Oxygen"
+      "titleFont": "Oxygen",
+      "labelFontWeight": "bold",  // Make bar names bold
+      "titleFontWeight": "bold"  // Make axis titles bold
     }
   }
 }
