@@ -40,7 +40,8 @@
       "axis": {
         "labelColor": "black",
         "titleColor": "black",
-        "titleFontWeight": "bold"
+        "titleFontWeight": "bold",
+        "format": ".2f"
       }
     },
     "y": {
@@ -65,27 +66,14 @@
       "mark": {
         "type": "bar",
         "color": "#ff3300"
-      },
-      "encoding": {
-        "x": {
-          "aggregate": "mean",
-          "field": "average_salary",
-          "type": "quantitative",
-          "title": "Average Base Salary (AUD)"
-        },
-        "y": {
-          "sort": {"op": "mean", "field": "average_salary", "order": "descending"},
-          "field": "ranked_job_title",
-          "type": "ordinal",
-          "title": "Job Title"
-        }
       }
     },
     {
       "mark": {
         "type": "text",
         "align": "left",
-        "dx": 3,
+        "dx": 5,  /* Moves the text slightly away from the bar to avoid overlap */
+        "dy": -5, /* Adjust text position vertically */
         "fontWeight": "bold",
         "color": "black"
       },
