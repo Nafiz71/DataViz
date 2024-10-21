@@ -1,233 +1,171 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>Exploring Tech Job Market in Australia</title>
-  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
-    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+    <title>Exploring Tech Job Market in Australia</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-  <style>
-    * {
-      font-family: 'Oxygen', sans-serif;
-      line-height: 1.5;
-    }
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    h1 {
-      font-weight: 900;
-      text-align: center;
-    }
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
 
-    h2, h3 {
-      font-weight: 700;
-      margin-top: 25px;
-      text-align: center;
-    }
+    <style>
+        * {
+            font-family: 'Oxygen', sans-serif;
+            line-height: 1.5;
+            text-align: center;
+        }
 
-    body {
-      background-color: lightgray;
-    }
+        h1 {
+            font-weight: 900;
+            font-size: 2.5em;
+        }
 
-    .page {
-      width: 90%;
-      max-width: 1100px;
-      background-color: white;
-      margin: auto;
-      padding: 70px;
-      padding-top: 35px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+        h2, h3 {
+            font-weight: 700;
+            margin-top: 25px;
+        }
 
-    .vis-container {
-      width: 100%;
-      text-align: center;
-    }
+        body {
+            background-color: lightgray;
+            margin: 0;
+        }
 
-    .pure-g {
-      margin-bottom: 25px;
-      text-align: center;
-    }
+        .page {
+            width: 90%;
+            max-width: 1100px;
+            background-color: white;
+            margin: auto;
+            padding: 70px;
+            padding-top: 35px;
+        }
 
-    p {
-      text-align: center;
-      max-width: 750px;
-      margin: auto;
-    }
+        .vis-container {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-    .donut-chart-section {
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      margin-top: 50px;
-      gap: 50px;
-    }
+        p {
+            max-width: 750px;
+            margin: auto;
+        }
 
-    .chart-container {
-      flex: 0.3;
-      text-align: left;
-    }
+        .story-section {
+            margin-top: 50px;
+        }
 
-    .explanation {
-      flex: 1.7;
-      padding-left: 20px;
-      text-align: left;
-    }
+        .story-section img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: auto;
+            transition: transform 0.3s ease;
+        }
 
-    .small-font {
-      font-size: 13px;
-      text-align: center;
-    }
+        .story-section img:hover {
+            transform: scale(1.05);
+        }
 
-    .story-section {
-      margin-top: 50px;
-      text-align: center;
-    }
+        .bar-chart-section {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
 
-    .story-section img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: auto;
-      transition: transform 0.3s ease;
-    }
+        .bar-chart-container {
+            flex: 0.7;
+        }
 
-    .story-section img:hover {
-      transform: scale(1.05);
-      cursor: pointer;
-    }
-
-    .bar-chart-section {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      margin-top: 50px;
-      gap: 50px;
-    }
-
-    .bar-chart-container {
-      flex: 0.7;
-      text-align: center;
-    }
-
-    .bar-explanation {
-      flex: 0.3;
-      padding-left: 20px;
-      text-align: left;
-    }
-  </style>
+        .small-font {
+            font-size: 13px;
+        }
+    </style>
 </head>
 
 <body>
 
-  <div class="page">
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <h1>Exploring Tech Job Market in Australia</h1>
-        <p>This set of visualizations shows the Tech job market in Australia.
-        Whether you're looking for a job in technology or an analyst position, this visualization provides key insights into the Australian tech job market. It highlights dominant roles, salary trends, and top companies, helping you make informed career decisions and understand where opportunities lie in this fast-evolving field.</p>
-      </div>
+    <div class="page">
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h1>Exploring Tech Job Market in Australia</h1>
+                <p>The tech industry in Australia is rapidly growing. This visualization shows key insights into the tech job market, salary trends, and top companies. Understand where opportunities lie in this fast-evolving field.</p>
+            </div>
+        </div>
+
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h2>Salary Distribution Across Australian States</h2>
+                <div id="ausmap" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1-1">
+                <p>Tech jobs in metropolitan areas offer higher salaries, especially Sydney and Melbourne. Regional areas show lower salaries but emerging opportunities exist.</p>
+            </div>
+        </div>
+
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h2>Estimated Salary Distribution by Tech Job Titles</h2>
+                <div id="boxplot" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1-1">
+                <p>Roles like Software Engineers and Data Scientists offer the highest salaries, while Entry-Level roles start lower but offer room for growth.</p>
+            </div>
+        </div>
+
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h2>Job Title Frequencies in the Tech Market</h2>
+                <div id="treemap" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1-1">
+                <p>Software Engineers, Data Analysts, and Consultants dominate the Australian tech market.</p>
+            </div>
+        </div>
+
+        <div class="story-section">
+            <h2>So What are the Top Tech Companies to Get Hired By?</h2>
+            <p>Deloitte, EY, and CSIRO offer competitive salaries and exciting opportunities. These companies are great places to start your tech career.</p>
+            <img src="png1topcomDS.png" alt="Top Tech Companies in Australia">
+        </div>
+
+        <div class="story-section">
+            <h2>So What Are The Highest Paying Tech Related Roles?</h2>
+            <p>Software Engineers, Data Scientists, and Engineers top the salary charts, with base salaries over $120K. Data Analysts earn below $100K.</p>
+        </div>
+
+        <div class="bar-chart-section">
+            <div class="bar-chart-container">
+                <div id="barchartbro" class="vis-container"></div>
+            </div>
+        </div>
+
+        <div class="pure-g">
+            <div class="pure-u-1-1 small-font">
+                <p>Visualizations by <a href="https://github.com/Nafiz71">Nafiz71</a>. Data sourced from public datasets on job salaries and companies across Australia.</p>
+                <p><strong>Data Sources:</strong> <a href="https://www.abs.gov.au/about/abs-careers/start-your-career-abs-graduate/data-graduates">Australian Bureau of Statistics - Tech Graduates</a>, <a href="https://data.gov.au">data.gov.au</a></p>
+                <p><strong>Disclaimer:</strong> This content is for educational purposes only.</p>
+            </div>
+        </div>
     </div>
 
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <h2>Salary Distribution Across Australian States</h2>
-        <div id="ausmap" class="vis-container"></div>
-      </div>
-    </div>
+    <script type="text/javascript">
+        var specAusMap = "./ausmapchloropeth.json";
+        vegaEmbed('#ausmap', specAusMap, { "actions": false }).then(function (result) {}).catch(console.error);
 
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <p>This map shows the average salaries across states, visualizing countrywide salary trends in the tech industry.</p>
-      </div>
-    </div>
+        var specBoxPlot = "./boxplot.json";
+        vegaEmbed('#boxplot', specBoxPlot, { "actions": false }).then(function (result) {}).catch(console.error);
 
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <h2>Estimated Salary Distribution by Tech Job Titles</h2>
-        <div id="boxplot" class="vis-container"></div>
-      </div>
-    </div>
+        var specTreemap = "./treemapup.json";
+        vegaEmbed('#treemap', specTreemap, { "actions": false }).then(function (result) {}).catch(console.error);
 
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <p>The box plot shows salary ranges for various tech job titles, highlighting position variations.</p>
-      </div>
-    </div>
-
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <h2>Job Title Frequencies in the Tech Market</h2>
-        <p>The treemap below shows the frequency of tech roles in the Australian market.</p>
-        <div id="treemap" class="vis-container"></div>
-      </div>
-    </div>
-
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <p>Software Engineers, Data Analysts, and Consultants lead the Australian tech market.</p>
-      </div>
-    </div>
-
-    <div class="story-section">
-      <h2>So What are the Top Tech Companies to Get Hired By?</h2>
-      <p>Several companies in Australia offer competitive salaries and diverse opportunities.</p>
-      <p>Tech roles are abundant in multinational firms, startups, and growing sectors.</p>
-      <p>Companies like Deloitte, EY, and CSIRO, known for their reputation and offering competitive salaries </p>
-      <p>are great places to start your career, particularly with larger firms typically offering starting salaries above $100K in tech roles.</p>
-      <img src="png1topcomDS.png" alt="Top Tech Companies in Australia">
-    </div>
-
-    <!-- New Section for Bar Chart Title and Story -->
-    <div class="story-section">
-      <h2>So What Are The Highest Paying Tech Related Roles?</h2>
-      <p>Software Engineers, Data Scientists, and Engineers top the salary chart with an average base salary of over $120K, showcasing their high demand in the market. In contrast, Data Analysts and related roles tend to earn below $100K, emphasizing the salary gap between technical and analytical positions in the tech field.</p>
-    </div>
-
-    <!-- Bar Chart Section -->
-    <div class="bar-chart-section">
-      <div class="bar-chart-container">
-        <div id="barchartbro" class="vis-container"></div>
-      </div>
-    </div>
-
-    <div class="pure-g">
-      <div class="pure-u-1-1 small-font">
-        <p>Visualizations by <a href="https://github.com/Nafiz71">Nafiz71</a>. The data used in this visualization is sourced from public datasets on job salaries and company sizes across Australia.</p>
-        <p><strong>Data Sources:</strong> <a href="https://www.abs.gov.au/about/abs-careers/start-your-career-abs-graduate/data-graduates">Australian Bureau of Statistics - Tech Graduates</a>, <a href="https://data.gov.au">data.gov.au</a></p>
-        <p><strong>Disclaimer:</strong> This content is for educational purposes only. Unauthorized copying of this content without permission constitutes copyright infringement.</p>
-      </div>
-    </div>
-  </div>
-
-  <script type="text/javascript">
-    var specAusMap = "./ausmapchloropeth.json";
-    var specBoxPlot = "./boxplot.json";
-    var specDonutChart = "./dohoe.vg.json";
-    var specTreemap = "./treemapup.json";
-    var specBarChart = "./barchart.vg.json";
-
-    vegaEmbed('#ausmap', specAusMap, { "actions": false }).then(function (result) {
-    }).catch(console.error);
-
-    vegaEmbed('#boxplot', specBoxPlot, { "actions": false }).then(function (result) {
-    }).catch(console.error);
-
-    vegaEmbed('#donutchart', specDonutChart, { "actions": false }).then(function (result) {
-    }).catch(console.error);
-
-    vegaEmbed('#treemap', specTreemap, { "actions": false }).then(function (result) {
-    }).catch(console.error);
-
-    vegaEmbed('#barchartbro', specBarChart, { "actions": false }).then(function (result) {
-    }).catch(console.error);
-  </script>
+        var specBarChart = "./barchart.vg.json";
+        vegaEmbed('#barchartbro', specBarChart, { "actions": false }).then(function (result) {}).catch(console.error);
+    </script>
 
 </body>
 
