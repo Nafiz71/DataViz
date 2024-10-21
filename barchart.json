@@ -40,7 +40,7 @@
       "axis": {
         "labelColor": "black",
         "titleColor": "black",
-        "titleFontWeight": "bold"  // Make axis title bold
+        "titleFontWeight": "bold"  
       }
     },
     "y": {
@@ -51,8 +51,8 @@
       "axis": {
         "labelColor": "black",
         "titleColor": "black",
-        "labelFontWeight": "bold",  // Make bar names bold
-        "titleFontWeight": "bold"  // Make axis title bold
+        "labelFontWeight": "bold",  
+        "titleFontWeight": "bold"  
       }
     }
   },
@@ -82,7 +82,7 @@
         "type": "text",
         "align": "left",
         "dx": 3,
-        "fontWeight": "bold",  // Make values bold
+        "fontWeight": "bold", 
         "color": "black"
       },
       "encoding": {
@@ -109,8 +109,8 @@
     "axis": {
       "labelFont": "Oxygen",
       "titleFont": "Oxygen",
-      "labelFontWeight": "bold",  // Make bar names bold
-      "titleFontWeight": "bold"  // Make axis titles bold
+      "labelFontWeight": "bold",  
+      "titleFontWeight": "bold"  
     }
   }
 }
