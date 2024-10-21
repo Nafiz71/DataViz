@@ -190,6 +190,13 @@
       </div>
     </div>
 
+    <!-- Donut Chart Section -->
+    <div class="story-section">
+      <h2>Breakdown of Key Skills in the Tech Sector</h2>
+      <p>The following donut chart highlights key technical skills in demand.</p>
+      <div id="donutchart" class="vis-container"></div>
+    </div>
+
     <div class="pure-g">
       <div class="pure-u-1-1 small-font">
         <p>Visualizations by <a href="https://github.com/Nafiz71">Nafiz71</a>. Data sourced from public datasets on job salaries and company sizes across Australia.</p>
@@ -216,6 +223,7 @@
     var specBoxPlot = "./boxplot.json";
     var specTreemap = "./treemapup.json";
     var specBarChart = "./barchart.vg.json";
+    var specDonutChart = "./dohoe.vg.json"; /* Link to the donut chart spec */
 
     vegaEmbed('#ausmap', specAusMap, { "actions": false }).then(function (result) {
     }).catch(console.error);
@@ -228,6 +236,10 @@
 
     vegaEmbed('#barchartbro', specBarChart, { "actions": false }).then(function (result) {
     }).catch(console.error);
+
+    vegaEmbed('#donutchart', specDonutChart, { "actions": false }).then(function (result) {
+    }).catch(console.error);
+
   </script>
 
 </body>
