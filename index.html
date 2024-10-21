@@ -186,16 +186,6 @@
       <p>Software Engineers, Data Scientists, and Engineers top the salary chart with an average base salary of over $120K, showcasing their high demand in the market. In contrast, Data Analysts and related roles tend to earn below $100K, emphasizing the salary gap between technical and analytical positions in the Data Science field.</p>
     </div>
 
-    <div class="donut-chart-section">
-      <div class="chart-container">
-        <div id="donutchart" class="vis-container"></div>
-      </div>
-      <div class="explanation">
-        <h3>Public and Government Companies Lead the Data Science Market</h3>
-        <p>From the chart, it's evident that public and government agencies dominate the data science job market in Australia. These sectors provide stability, competitive pay, and opportunities for professionals to make an impact on large-scale projects. As industries such as healthcare, education, and infrastructure become more data-driven, the demand for data science professionals in these areas continues to rise. Job seekers looking for long-term, impactful roles should consider opportunities in these sectors.</p>
-      </div>
-    </div>
-
     <!-- Bar Chart Section -->
     <div class="bar-chart-section">
       <div class="bar-chart-container">
@@ -227,4 +217,19 @@
     vegaEmbed('#ausmap', specAusMap, { "actions": false }).then(function (result) {
     }).catch(console.error);
 
-    vegaEmbed('#boxplot', specBoxPlot
+    vegaEmbed('#boxplot', specBoxPlot, { "actions": false }).then(function (result) {
+    }).catch(console.error);
+
+    vegaEmbed('#donutchart', specDonutChart, { "actions": false }).then(function (result) {
+    }).catch(console.error);
+
+    vegaEmbed('#treemap', specTreemap, { "actions": false }).then(function (result) {
+    }).catch(console.error);
+
+    vegaEmbed('#barchartbro', specBarChart, { "actions": false }).then(function (result) {
+    }).catch(console.error);
+  </script>
+
+</body>
+
+</html>
