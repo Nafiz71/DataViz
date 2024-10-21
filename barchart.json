@@ -1,0 +1,116 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Top Job Titles by Average Base Salary",
+  "title": {
+    "text": "Top High Paying Data Jobs",
+    "font": "Oxygen",
+    "fontSize": 16,
+    "fontWeight": 600,
+    "color": "black"
+  },
+  "width": 600,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/Nafiz71/DataViz/refs/heads/main/filtered_top_10_job_titles.csv",
+    "format": {"type": "csv"}
+  },
+  "mark": {
+    "type": "bar",
+    "color": "#ff3300"
+  },
+  "transform": [
+    {
+      "aggregate": [{"op": "mean", "field": "Estimate Base Salary", "as": "average_salary"}],
+      "groupby": ["Job Title"]
+    },
+    {
+      "window": [{"op": "row_number", "as": "rank"}],
+      "sort": [{ "field": "average_salary", "order": "descending" }]
+    },
+    {
+      "calculate": "datum.rank < 10 ? datum['Job Title'] : 'All Others'", "as": "ranked_job_title"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "aggregate": "mean",
+      "field": "average_salary",
+      "type": "quantitative",
+      "title": "Average Base Salary (AUD)",
+      "axis": {
+        "labelColor": "black",
+        "titleColor": "black",
+        "titleFontWeight": "bold"  
+      }
+    },
+    "y": {
+      "sort": {"op": "mean", "field": "average_salary", "order": "descending"},
+      "field": "ranked_job_title",
+      "type": "ordinal",
+      "title": "Job Title",
+      "axis": {
+        "labelColor": "black",
+        "titleColor": "black",
+        "labelFontWeight": "bold",  
+        "titleFontWeight": "bold"  
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "color": "#ff3300"
+      },
+      "encoding": {
+        "x": {
+          "aggregate": "mean",
+          "field": "average_salary",
+          "type": "quantitative",
+          "title": "Average Base Salary (AUD)"
+        },
+        "y": {
+          "sort": {"op": "mean", "field": "average_salary", "order": "descending"},
+          "field": "ranked_job_title",
+          "type": "ordinal",
+          "title": "Job Title"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 3,
+        "fontWeight": "bold", 
+        "color": "black"
+      },
+      "encoding": {
+        "text": {
+          "aggregate": "mean",
+          "field": "average_salary",
+          "type": "quantitative",
+          "format": ".2f" 
+        },
+        "x": {
+          "aggregate": "mean",
+          "field": "average_salary",
+          "type": "quantitative"
+        },
+        "y": {
+          "sort": {"op": "mean", "field": "average_salary", "order": "descending"},
+          "field": "ranked_job_title",
+          "type": "ordinal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "axis": {
+      "labelFont": "Oxygen",
+      "titleFont": "Oxygen",
+      "labelFontWeight": "bold",  
+      "titleFontWeight": "bold"  
+    }
+  }
+}
