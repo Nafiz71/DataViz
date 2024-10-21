@@ -72,8 +72,8 @@
       "mark": {
         "type": "text",
         "align": "left",
-        "dx": 5,  /* Moves the text slightly away from the bar to avoid overlap */
-        "dy": -5, /* Adjust text position vertically */
+        "dx": 5,  
+        "dy": -5, 
         "fontWeight": "bold",
         "color": "black"
       },
