@@ -214,4 +214,26 @@
   <script type="text/javascript">
     var specAusMap = "./ausmapchloropeth.json";
     var specBoxPlot = "./boxplot.json";
-    var specDonutChart = "./dohoe.vg
+    var specDonutChart = "./dohoe.vg.json";
+    var specTreemap = "./treemapup.json";
+    var specBarChart = "./barchart.vg.json";
+
+    vegaEmbed('#ausmap', specAusMap, { "actions": false }).then(function (result) {
+    }).catch(console.error);
+
+    vegaEmbed('#boxplot', specBoxPlot, { "actions": false }).then(function (result) {
+    }).catch(console.error);
+
+    vegaEmbed('#donutchart', specDonutChart, { "actions": false }).then(function (result) {
+    }).catch(console.error);
+
+    vegaEmbed('#treemap', specTreemap, { "actions": false }).then(function (result) {
+    }).catch(console.error);
+
+    vegaEmbed('#barchartbro', specBarChart, { "actions": false }).then(function (result) {
+    }).catch(console.error);
+  </script>
+
+</body>
+
+</html>
